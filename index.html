@@ -1,0 +1,43 @@
+><!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Datos de envio</h1>
+    <form action="procesa.php" onsubmit="return validaFormulario()" method="post">
+        <label for="provincia">Provincia</label>
+        <select name="provincia" id="provincia">
+            <option value="elija">Elija una</option>
+            <option value="cr">Ciudad Real</option>
+            <option value="ab">Albacete</option>
+            <option value="cu">Cuenca</option>
+            <option value="gu">Guadalajara</option>
+            <option value="to">Toledo</option>
+        </select>
+        <p>
+            He leido y acepto las condiciones <input type="checkbox" name="leido" id="leido">
+        </p>
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        function validaFormulario(){
+            let provincia = document.getElementById("provincia").value;
+            if (provincia=="elija"){
+                alert ("Debe elegir una provincia");
+                return false;
+            }
+            let leido = document.getElementById("leido").checked;
+            if (leido==false){
+                alert ("Debe aceptar las condiciones");
+                document.getElementById("leido").focus();
+                return false;
+            }
+            alert ("Datos correctos");
+            return true
+        }
+    </script>
+</body>
+</html>
