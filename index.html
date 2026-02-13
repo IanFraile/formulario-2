@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #aviso-provincia {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Datos de envio</h1>
@@ -17,6 +22,7 @@
             <option value="gu">Guadalajara</option>
             <option value="to">Toledo</option>
         </select>
+        <p id="aviso-provincia"></p>
         <p>
             He leido y acepto las condiciones <input type="checkbox" name="leido" id="leido">
         </p>
@@ -26,7 +32,10 @@
         function validaFormulario(){
             let provincia = document.getElementById("provincia").value;
             if (provincia=="elija"){
-                alert ("Debe elegir una provincia");
+                //alert ("Debe elegir una provincia");
+                
+                document.getElementById("elija").focus();
+                document.getElementById("aviso-provincia").innerHTML = ("Debe elegir una provincia");
                 return false;
             }
             let leido = document.getElementById("leido").checked;
